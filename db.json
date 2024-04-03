@@ -1,0 +1,44 @@
+{
+  "articles": [
+    {
+      "title": "PUT과 PATH 메서드의 차이",
+      "content": "contnet"
+    },
+    {
+      "title": "PUT과 PATH 메서드의 차이",
+      "content": "contnet"
+    },
+    {
+      "title": "PATCH 메서드를 활용한 게시글 제목 수정 1"
+    },
+    {
+      "title": "PATCH 메서드를 활용한 게시글 제목 수정 1",
+      "content": "contnet",
+      "id": "a4483476-30c6-4b98-8379-2b8f02adb436"
+    },
+    {
+      "title": "title4",
+      "content": "contnet",
+      "id": "a76805ea-530f-4dfa-8bc2-7d07c5c81e89"
+    },
+    {
+      "title": "title1",
+      "content": "contnet",
+      "id": "759268ed-e07f-4103-a97b-f5c6cf544b8f"
+    },
+    {
+      "title": "title2",
+      "content": "contnet",
+      "id": "1b218083-0d53-43bc-aa54-a35c780cfd23"
+    },
+    {
+      "title": "title4",
+      "content": "contnet",
+      "id": "26efde83-ceef-4349-96ad-95a6fdec3bd9"
+    },
+    {
+      "title": "PUT과 PATH 메서드의 차이",
+      "content": "contnet"
+    }
+  ]
+}
