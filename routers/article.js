@@ -12,11 +12,6 @@ router.post("",(req, res) => {
 
   if(error){
     return res.status(400).json({
-      _links: {
-        self:{
-          href: req.originalUrl,
-        },
-      },
       message: error.details[0].message,
     })
   }
@@ -29,11 +24,7 @@ router.post("",(req, res) => {
   db.write();
   res.set("Content-Type", "application/vnd.hal+json");
   return res.status(201).json({
-    "_links": {
-      "self":{
-        "href":req.originalUrl
-      },
-    },
+    
     _embedded:{
       article:{
         _links:{
@@ -50,11 +41,6 @@ router.post("",(req, res) => {
 router.get("", (req, res) => {
   res.set("Content-Type", "application/vnd.hal+json");
   return res.status(200).json({
-    _links: {
-      self: {
-        href: req.originalUrl,
-      },
-    },
     _embedded: {
       articles: db.data.articles.map((article) =>({
         _links: {
@@ -76,9 +62,6 @@ router.get("/:articleId", (req, res) => {
   if (!article) {
     return res.status(404).json({
       _links: {
-        self: {
-          href: req.originalUrl,
-        },
         articles: {
           href: req.baseUrl,
         }
@@ -88,11 +71,6 @@ router.get("/:articleId", (req, res) => {
     });
   }
   return res.status(200).json({
-    _links: {
-      self: {
-        href: req.originalUrl,
-      },
-    },
     _embedded: {
       article:{
         _links:{
@@ -117,9 +95,6 @@ router.put("/:articleId", (req, res) => {
   if (articleIndex < 0) {
     return res.status(404).json({
       _links: {
-        self: {
-          href: req.originalUrl,
-        },
         articles: {
           href: req.baseUrl,
         }
@@ -133,11 +108,6 @@ router.put("/:articleId", (req, res) => {
 
   if(error){
     return res.status(400).json({
-      _links: {
-        self:{
-          href: req.originalUrl,
-        },
-      },
       message: error.details[0].message,
     })
   }
@@ -147,11 +117,6 @@ router.put("/:articleId", (req, res) => {
   db.write();
 
   return res.status(200).json({
-    _links: {
-      self: {
-        href: req.originalUrl,
-      },
-    },
     _embedded: {
       article:{
         _links:{
@@ -176,9 +141,6 @@ router.patch("/:articleId", (req, res) => {
   if (articleIndex < 0) {
     return res.status(404).json({
       _links: {
-        self: {
-          href: req.originalUrl,
-        },
         articles: {
           href: req.baseUrl,
         }
@@ -192,11 +154,6 @@ router.patch("/:articleId", (req, res) => {
 
   if(error){
     return res.status(400).json({
-      _links: {
-        self:{
-          href: req.originalUrl,
-        },
-      },
       message: error.details[0].message,
     })
   }
@@ -208,11 +165,6 @@ router.patch("/:articleId", (req, res) => {
   db.data.articles[articleIndex] = article;
   db.write();
   return res.status(200).json({
-    _links: {
-      self: {
-        href: req.originalUrl,
-      },
-    },
     _embedded: {
       article:{
         _links:{
@@ -237,9 +189,6 @@ router.delete("/:articleid", (req, res) => {
   if (articleIndex < 0) {
     return res.status(404).json({
       _links: {
-        self: {
-          href: req.originalUrl,
-        },
         articles: {
           href: req.baseUrl,
         }
@@ -254,9 +203,6 @@ router.delete("/:articleid", (req, res) => {
 
   return res.status(200).send({
     _links: {
-      self: {
-        href: req.originalUrl,
-      },
       articles: {
         href: req.baseUrl,
       }
