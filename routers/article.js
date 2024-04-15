@@ -2,6 +2,7 @@ import { randomUUID } from "crypto";
 import express from "express";
 import db from "../db.js";
 import { articleCreateSchema, articleUpdateSchema, articlePartialUpdateSchema } from "../schemas/article.js";
+import { logger } from "../core/logger.js";
 // hypertext Application Language
 const router = express.Router();
 
@@ -39,7 +40,10 @@ router.post("",(req, res) => {
 });
 
 router.get("", (req, res) => {
-  res.set("Content-Type", "application/vnd.hal+json");
+  logger.debug("게시글 목록 조회");
+  logger.warn("WARNING");
+  logger.error("ERROR");
+
   return res.status(200).json({
     _embedded: {
       articles: db.data.articles.map((article) =>({
